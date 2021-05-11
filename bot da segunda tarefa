@@ -1,1 +1,10 @@
+import os #
+import discord #
+from dotenv import load_dotenv #Importação de recursos para os métodos de acesso ao Discord
 
+load_dotenv()
+TOKEN = 'ODM5MDc3Njg4MDA5NDI0OTI3.YJEZ_g.XyA3FTeDy_4yZ9wUrWiXSd8k-OI' # O token de acesso ao meu bot
+
+client = discord.Client()
+
+@client.event
