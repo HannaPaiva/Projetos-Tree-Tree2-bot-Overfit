@@ -1,10 +1,33 @@
 import os #
-import discord #
+import discord
+from discord import message
 from dotenv import load_dotenv #Importação de recursos para os métodos de acesso ao Discord
 
+from datetime import datetime
+now = datetime.now()
+hora = now.hour
+minuto = now.minute
+tempo = str(hora) + ":" + str(minuto)
+
+
 load_dotenv()
-TOKEN = 'ODM5MDc3Njg4MDA5NDI0OTI3.YJEZ_g.XyA3FTeDy_4yZ9wUrWiXSd8k-OI' # O token de acesso ao meu bot
+TOKEN = 'ODM5MTc2NzIxNzg4ODI5NzE4.YJF2OQ.pxogH1ju_2XKYjC_mbRj12RZQIw' 
 
 client = discord.Client()
+channel = client.get_channel(841977130208460821)
 
 @client.event
+async def on_ready():
+    print('Seu bot está conectado!')
+
+@client.event
+async def on_message(message):
+    id = client.get_guild(838746575396274219)
+    channels = ["sala20"]
+    if str(message.channel) in channels:
+        if message.content.find("a") != -1:
+            await message.channel.send("Estou aqui!")
+        elif message.content == "!bot":
+            await message.channel.send("Presente!")
+            
+            
