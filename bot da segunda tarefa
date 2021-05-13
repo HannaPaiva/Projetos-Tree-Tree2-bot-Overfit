@@ -4,12 +4,11 @@ from discord import message
 from dotenv import load_dotenv #Importação de recursos para os métodos de acesso ao Discord
 
 from datetime import datetime
-now = datetime.now()
-hora = now.hour
-minuto = now.minute
-tempo = str(hora) + ":" + str(minuto)
-contador = 1
 
+now = datetime.now()
+
+
+contador = 1
 load_dotenv()
 TOKEN = 'ODM5MTc2NzIxNzg4ODI5NzE4.YJF2OQ.pxogH1ju_2XKYjC_mbRj12RZQIw' 
 
@@ -22,14 +21,18 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    now = datetime.now() #atualizar tempo com o evento
+    tempo = now.strftime("%H:%M") 
     id = client.get_guild(838746575396274219)
     channels = ["sala20"]
+    
     if str(message.channel) in channels:
-        
-        if message.content.find("a") < contador:
-            await message.channel.send("Estou aqui!")
-            
-        elif message.content == "!bot":
-            await message.channel.send("Presente!")
+
+       if tempo != "21:23": # aqui funciona em qualquer hora, exceto às 21:23
+         if message.content.find("a") < contador:
+          await message.channel.send(f"Estou aqui! Agora são {tempo}")
+         
+
+   
 
 client.run(TOKEN)
