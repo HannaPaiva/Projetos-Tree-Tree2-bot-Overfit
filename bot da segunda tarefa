@@ -28,11 +28,9 @@ async def on_message(message):
     
     if str(message.channel) in channels:
 
-       if tempo != "21:23": # aqui funciona em qualquer hora, exceto às 21:23
-         if message.content.find("a") < contador:
+       if tempo != "21:23":
+         if message.content == "a":
           await message.channel.send(f"Estou aqui! Agora são {tempo}")
          
-
-   
 
 client.run(TOKEN)
