@@ -1,9 +1,11 @@
 import os #
 import discord
+import time
 from discord import message
 from dotenv import load_dotenv #Importação de recursos para os métodos de acesso ao Discord
 
 from datetime import datetime
+
 
 now = datetime.now()
 
@@ -14,6 +16,15 @@ TOKEN = 'ODM5MTc2NzIxNzg4ODI5NzE4.YJF2OQ.pxogH1ju_2XKYjC_mbRj12RZQIw'
 
 client = discord.Client()
 channel = client.get_channel(841977130208460821)
+
+
+mensagem1 = f':books:  Bem-vindos à Prova de Simulação de hoje :books: \n Juntem-se ao canal de voz "Sala do 20" para começarmos :point_up: \n @everyone'
+
+
+     
+
+    
+
 
 @client.event
 async def on_ready():
@@ -29,8 +40,9 @@ async def on_message(message):
     if str(message.channel) in channels:
 
        if tempo != "21:23":
-         if message.content == "a":
-          await message.channel.send(f"Estou aqui! Agora são {tempo}")
+         if message.content == "!prova":
+          # await message.channel.send(f"Estou aqui! Agora são {tempo}")
+          await message.channel.send(mensagem1)
          
 
 client.run(TOKEN)
