@@ -1,61 +1,79 @@
-# bot.py
 import os
-
 import discord
+import asyncio
+from discord.ext.commands.converter import MemberConverter
+from discord.ext.commands.errors import MemberNotFound
+from discord.ext import commands
+
+PREFIX = '!'
+INTENTS = discord.Intents.default()
+bot = commands.Bot(command_prefix=PREFIX, intents=INTENTS)
+
+from discord.flags import MemberCacheFlags
+import discord
+from discord.ext import commands
 from dotenv import load_dotenv
+import ctx
 
 load_dotenv()
-TOKEN = 'ODM5MTc2NzIxNzg4ODI5NzE4.YJF2OQ.pxogH1ju_2XKYjC_mbRj12RZQIw'
+intents = discord.Intents.default()
+intents.members = True
+client = discord.Client(intents=intents)
 GUILD = 'Overfit Testes (Hanna)'
-
+guild = discord.utils.get(client.guilds, name=GUILD)
+@bot.command()
+async def members(ctx):
+    for guild in client.guilds:
+        for member in guild.members:
+            print(member)
+            
 ID_Overfit = 839169152467992576 #server overfit 
 ID_salado20 = 839169153092288587
 
 ID_teste = 838746575396274219 # server de testes pessoal
 ID_sala = 841977130208460821
 
-client = discord.Client()
+
+TOKEN = 'ODM5MTc2NzIxNzg4ODI5NzE4.YJF2OQ.pxogH1ju_2XKYjC_mbRj12RZQIw'
+
+def filternames(member):
+    return member.name
+
+def filterOnlyBots(member):
+    return member.bot
+def filterOnlyOnlineMembers(member):
+    return member.status == discord.Status.online
 
 @client.event
 async def on_ready():
     
-    for guild in client.guilds:
-        if guild.name == GUILD:
-            break
-
-    print(
-        f'{client.user} is connected to the following guild:\n'
-        f'{guild.name}(id: {guild.id})\n'
-    )
-    contador = guild.memberCount
-    members = '\n - '.join([member.name for member in guild.members])
-    op = members
-    print(f'Membros ativos:\n - {members}')
-
+    
+    print('Bot ativo')
 
 @client.event
 async def on_message(message):
-  
-    id = client.get_guild(ID_Overfit)
+       
+       
+ if message.content.startswith('a'):    
     
-    channels = ["sala-do-20"]
-    
-    guild = discord.utils.get(client.guilds, name=GUILD)
-    
-    print(
-        f'{client.user} is connected to the following guild:\n')
-     
-   
-    membros = '\n - '.join([member.name for member in guild.members])
-   
-    print(f'Membros ativos:\n - {membros}')
+        membersInServer = message.guild.members
+        
+        channel = message.channel
+      
+        botsInServer = list(filter(filterOnlyBots, membersInServer))
+        botsInServerCount = len(botsInServer)
+        
+        nomemembros = list(list(filter(filternames, membersInServer)))
+        onlineMembersInServer = list(filter(filterOnlyOnlineMembers, membersInServer))
+        usersInServerCount = message.guild.member_count - botsInServerCount
+        
+        
+        msg = discord.Embed(title="Quantidade de membros:", description=usersInServerCount, color=0x00FD00)
+        msg.add_field(name="Quantidade de bots:",value=botsInServerCount, inline=False)
+        msg.add_field(name="Membros:", value = nomemembros, inline=True)
+        msg.add_field(name="Membros Online: ",value= onlineMembersInServer, inline= True)
+        await channel.send(embed=msg)
+        print(member.status!=discord.Status.offline for member in message.guild.members)
+        
 
-    if str(message.channel) in channels:  
-        if client.user != message.author :
-            
-         if message.content == "a":
-          await message.channel.send(f'Sou a {client.user.name}, com a ID {client.user.id}, e no canal {message.channel}')
-          
-          await message.channel.send(f'Membros ativos: \n - {membros} ')
-          
 client.run(TOKEN)
