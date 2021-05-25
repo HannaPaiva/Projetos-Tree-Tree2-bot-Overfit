@@ -1,0 +1,125 @@
+'''
+Importar módulos e APIs
+
+'''
+from asyncio.windows_events import NULL
+from time import time
+import discord
+from discord.ext import commands
+from discord.ext import tasks, commands
+import os
+import random
+from dotenv import load_dotenv
+from datetime import datetime
+import asyncio
+import time
+load_dotenv()
+'''
+
+'''
+client = commands.Bot(command_prefix= '!')
+GUILD = 'Teste'
+TOKEN = 'ODM5MTc2NzIxNzg4ODI5NzE4.YJF2OQ.pxogH1ju_2XKYjC_mbRj12RZQIw'   
+guild = discord.utils.get(client.guilds, name=GUILD)
+
+intents = discord.Intents().all()
+intents.members = True
+
+now = datetime.now() 
+tempo = now.strftime("%H:%M") 
+
+bot = commands.Bot(command_prefix='!', intents = intents)
+
+@bot.event
+async def on_ready():
+    print(f'{bot.user.name} has connected to Discord!') 
+
+@bot.command(name='t') #Ao ser inserido o comando !h
+async def count(ctx, number:int):
+ try:
+    if number < 0:
+        await ctx.send('O tempo não pode ser negativo')
+    else:
+        h = time.strftime('%H:%M:%S', time.gmtime(number))
+        message = await ctx.send(h)
+        while number != 0:
+            number -= 1
+            h = time.strftime('%H:%M:%S', time.gmtime(number))
+            await message.edit(content=h)
+            await asyncio.sleep(1)
+        await message.edit(content='Fim!')
+
+ except ValueError:
+        await ctx.send('time was not a number')
+        
+@bot.command(name='timer')
+async def count(ctx):
+ now = datetime.now() 
+ tempo = now.strftime("%H:%M:%S") 
+ number = 3600
+ message = await ctx.send(f"Hora de início: {tempo}")
+ message = await ctx.send(number)
+ h2 = time.strftime('%H:%M:%S', time.gmtime(number))
+
+ while number != 0:
+    h = time.strftime('%H:%M:%S', time.gmtime(number))
+    number -= 1
+    await message.edit(content= h)
+    await asyncio.sleep(1)
+ await message.edit(content='Fim!')
+
+@bot.command(name='cls')
+async def count(ctx):
+      channel = ctx.channel
+      for x in range(1000):
+       await ctx.channel.purge(limit = 10000)
+    
+       
+@bot.command(name='a')
+async def adds(ctx):
+     
+    response = f'MEU DEEEEEEEUS AAAAAAAAA, agora são {now}'
+    await ctx.send(response)
+    
+@bot.command(name='greet')
+async def msgprivada(ctx):
+    await ctx.author.send("Hello")
+
+
+@bot.command(name='dm')
+async def dm(ctx, user_id = None, *, args = None):
+ if user_id != None and args != None:
+     try:
+         target = await bot.fetch_user(user_id)
+         await target.send(args)
+         await ctx.channel.send("'" + args + "'" + " Foi enviada para: " + target.name )
+     except:
+        await ctx.channel.send("Não foi possível mandar a mensager")
+
+
+@bot.command(name='alldm')
+async def alldm(ctx, *, args = None):
+  if args != None:
+     members = ctx.guild.members
+   
+     for member in members:
+        try:
+          await member.send(args)
+          print("'" + args + " ' para " + member.name)
+        except:
+          print("Não foi possível enviar '" + args + "' para" + member.name)
+  else: 
+        await ctx.channel.send ("faltaram argumentos")
+
+@bot.command(name='dmadmin')
+async def dm_admin(ctx, *, args = None):
+  if args != None:
+     members = ctx.guild.members
+     for member in members:
+        try:
+          await member.send(args)
+          print("'" + args + " ' para " + member.name)
+        except:
+          print("Não foi possível enviar '" + args + "' para" + member.name)
+
+bot.run(TOKEN)
