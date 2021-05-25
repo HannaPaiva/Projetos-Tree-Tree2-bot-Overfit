@@ -13,11 +13,13 @@ from dotenv import load_dotenv
 from datetime import datetime
 import asyncio
 import time
+import csv
+import io
 load_dotenv()
 '''
 
 '''
-client = commands.Bot(command_prefix= '!')
+client = commands.Bot(command_prefix= '.')
 GUILD = 'Teste'
 TOKEN = 'ODM5MTc2NzIxNzg4ODI5NzE4.YJF2OQ.pxogH1ju_2XKYjC_mbRj12RZQIw'   
 guild = discord.utils.get(client.guilds, name=GUILD)
@@ -29,12 +31,18 @@ now = datetime.now()
 tempo = now.strftime("%H:%M") 
 
 bot = commands.Bot(command_prefix='!', intents = intents)
+bot.remove_command('help')
+
+
 
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!') 
+    
+    
+    
 
-@bot.command(name='t') #Ao ser inserido o comando !h
+@bot.command(name='t') #Ao ser inserido o comando !t
 async def count(ctx, number:int):
  try:
     if number < 0:
@@ -50,7 +58,10 @@ async def count(ctx, number:int):
         await message.edit(content='Fim!')
 
  except ValueError:
+     
         await ctx.send('time was not a number')
+        
+        
         
 @bot.command(name='timer')
 async def count(ctx):
@@ -68,24 +79,48 @@ async def count(ctx):
     await asyncio.sleep(1)
  await message.edit(content='Fim!')
 
+
+
 @bot.command(name='cls')
 async def count(ctx):
       channel = ctx.channel
-      for x in range(1000):
-       await ctx.channel.purge(limit = 10000)
-    
+      count = 0
+      async for _ in channel.history(limit=None):
+          count = count + 1
+          await ctx.channel.purge(limit = count)
+  
        
-@bot.command(name='a')
-async def adds(ctx):
-     
-    response = f'MEU DEEEEEEEUS AAAAAAAAA, agora são {now}'
-    await ctx.send(response)
+    
+@bot.command(name = 'contar_mensagens')
+async def message_count(ctx, channel: discord.TextChannel=None):
+    channel = ctx.channel
+    count = 0
+    async for _ in channel.history(limit=None):
+        count += 1
+    await ctx.send("Há {} mensagens no canal {}".format(count, channel.mention))
     
 @bot.command(name='greet')
 async def msgprivada(ctx):
-    await ctx.author.send("Hello")
+    await ctx.author.send("Olá!! :D")
+    
+@bot.command(name='help')
+async def help(ctx):
+   
+    fmr = []
+ 
+    with open ('help.txt', 'r',encoding='utf-8') as file:
+       hlp = file.readlines() 
+       
+       fmr = "\n".join(hlp)
 
-
+   
+    msg = discord.Embed(title=f"Comandos que {bot.user.name} possui: ", description= '', color=0xDC143C)
+        
+    msg.add_field(name= '**', value = fmr, inline = False)
+  
+        
+    await ctx.channel.send(embed=msg)
+    # await ctx.channel.send(file=discord.File('help.txt'))
 @bot.command(name='dm')
 async def dm(ctx, user_id = None, *, args = None):
  if user_id != None and args != None:
@@ -123,3 +158,4 @@ async def dm_admin(ctx, *, args = None):
           print("Não foi possível enviar '" + args + "' para" + member.name)
 
 bot.run(TOKEN)
+
