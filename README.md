@@ -1,2 +1,4 @@
 # Projetos-Tree-Tree2--Hanna-Paiva
-## Titulo 
+## Discord Bot
+### Description 
+This is Trixsbot
