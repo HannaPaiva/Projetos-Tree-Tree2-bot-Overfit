@@ -8,7 +8,8 @@ import csv
 from dotenv import load_dotenv
 import os
 load_dotenv('.env')
-datetime.utcnow().replace(tzinfo=pytz.timezone('Portugal'))
+
+timezone = datetime.now().replace(tzinfo=pytz.timezone('Portugal'))
 
 ## ----------------------------- Time assignments for the reminder method -------------------------------------##
 
