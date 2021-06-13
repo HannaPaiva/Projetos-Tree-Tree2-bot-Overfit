@@ -19,28 +19,10 @@ information.
 * **[Hanna (@Hantriex)]**
 * **[Pedro Marcelino (@pmarcelino)]**
 
-## Support
-
-Before requesting support, you should know that this template requires you to have at least a **basic knowledge** of
-Python and the library is made for advanced users. Do not use this template if you don't know the
-basics. [Here's](https://pythondiscord.com/pages/resources) a link for resources to learn python.
-
-If you need some help for something, do not hesitate to join my discord server [here](https://discord.gg/HzJ3Gfr).
-
-All the updates of the template are available [here](UPDATES.md).
-
-## Disclaimer
-
-**Nothing** is being saved during runtime in the configuration file, please take a look at the [TODO file](TODO.md) to
-know if this has been implemented.
-
-Please do not open issues or pull requests about things that are written in the [TODO file](TODO.md), they are **
-already** under work for the version 3.0 of the template.
 
 ## How to download it
 
-This repository is now a template, on the top left you can simply click on "**Use this template**" to create a GitHub
-repository based on this template.
+This repository contais a code that you can download and build your own bot with it. 
 
 Alternatively you can do the following:
 
@@ -65,8 +47,7 @@ Here is an explanation of what everything is:
 | YOUR_BOT_PREFIX_HERE  | The prefix(es) of your bot                                            |
 | YOUR_BOT_TOKEN_HERE   | The token of your bot                                                 |
 | APPLICATION_ID        | The application ID of your bot                                        |
-| OWNERS                | The user ID of all the bot owners                                     |
-| BLACKLIST             | The user ID of all the users who can't use the bot                    |
+
 
 ## How to start
 
