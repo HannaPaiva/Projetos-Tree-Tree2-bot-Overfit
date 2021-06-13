@@ -9,12 +9,12 @@ from dotenv import load_dotenv
 import os
 load_dotenv('.env')
 
-timezone = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
+# timezone = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
 
 ## ----------------------------- Time assignments for the reminder method -------------------------------------##
 
 format = '%H:%M'
-now = datetime.now()
+now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
 time_now = now.strftime(format)
 
 advance_time = '00:15'
@@ -120,7 +120,7 @@ async def Daily_Cleanup():
     count = 0
 
     while True:
-        now = datetime.now().strftime(format)
+        now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon')).strftime(format)
 
         if now == strtimecleanup:
 
@@ -185,7 +185,7 @@ async def Reminder():
     '''
     while True:
 
-        now = datetime.now().strftime(format)
+        now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon')).strftime(format)
 
         if now == reminder:
 
@@ -782,7 +782,7 @@ async def presencas(ctx):
 
     channel = ctx.message.channel
     guild = ctx.message.guild
-    now = datetime.now()
+    now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
     now_time = now.strftime("%d/%m/%Y - %H:%M")
     now_date = now.strftime("%d/%m/%Y")
 
@@ -853,7 +853,7 @@ async def on_message(ctx):
 
 *****************************************************************************************************************************************
 '''
-    now = datetime.now()
+    now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
     membersInServer = ctx.guild.members
     channel = ctx.message.channel
     bots_In_Server = list(filter(filterOnlyBots, membersInServer))
@@ -886,3 +886,4 @@ async def on_message(ctx):
 
 
 bot.run(TOKEN)
+
