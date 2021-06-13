@@ -1,4 +1,5 @@
 import asyncio
+from asyncio.windows_events import NULL
 import discord
 from discord.ext import commands
 from datetime import datetime
@@ -19,10 +20,9 @@ time_now = now.strftime(format)
 
 advance_time = '00:15'
 advance = '00:15:00'
-start_time = '09:30'
+start_time = '09:00'
 
-reminder = datetime.strptime(start_time, format) - \
-    datetime.strptime(advance_time, format)
+reminder = datetime.strptime(start_time, format) - datetime.strptime(advance_time, format)
 print(f"Agora são {now}")
 print(f"Tempo do lembrete diário = {reminder}")
 
@@ -40,7 +40,7 @@ bot.remove_command('help')
 
 ## ----------------------------- Time assignment for the daily cleanup method--------------------------------------##
 
-strtimecleanup = '06:00'
+strtimecleanup = '08:00'
 dailytime_cleanup = datetime.strptime(strtimecleanup, format)
 
 
@@ -334,13 +334,13 @@ async def create(ctx, channel_name, categ):
 
     category = discord.utils.get(guild.categories, name=categ)
 
-    if existing_channel is None and category != NULL:
+    if existing_channel is None and category is not None:
         await guild.create_text_channel(channel_name, type=discord.ChannelType.text, category=category)
-
-    elif existing_channel is not None:
+    else:
+     if existing_channel is not None:
         await ctx.channel.send("Este canal já existe!")
 
-    elif category is None:
+     if category is None:
         await ctx.channel.send("Essa categoria não existe :c")
 
 
