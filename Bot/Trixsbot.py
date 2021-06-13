@@ -1,5 +1,3 @@
-import asyncio
-from asyncio.windows_events import NULL
 import discord
 from discord.ext import commands
 from datetime import datetime
@@ -273,8 +271,8 @@ async def cleanupv2(ctx, channel_name):
     existing_channel = discord.utils.get(guild.channels, name=channel_name)
 
     if existing_channel is not None:
-
         await existing_channel.delete()
+        
     elif existing_channel is None:
         await ctx.channel.send("O canal não existe")
 
@@ -336,7 +334,9 @@ async def create(ctx, channel_name, categ):
 
     if existing_channel is None and category is not None:
         await guild.create_text_channel(channel_name, type=discord.ChannelType.text, category=category)
+        
     else:
+        
      if existing_channel is not None:
         await ctx.channel.send("Este canal já existe!")
 
