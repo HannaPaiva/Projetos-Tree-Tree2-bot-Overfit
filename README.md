@@ -1,7 +1,5 @@
 # Python Discord Bot 
 
-
-
 This repository is a template that everyone can use for the start of their discord bot.
 
 When I first started creating my discord bot it took me a while to get everything setup and working with cogs and more.
@@ -18,7 +16,7 @@ information.
 
 ## Authors
 
-* **[Krypton (@kkrypt0nn)](https://github.com/kkrypt0nn)**
+* **[Hanna (@Hantriex)]**
 
 ## Support
 
