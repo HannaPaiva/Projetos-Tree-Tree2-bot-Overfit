@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 import os
 load_dotenv('.env')
 
-timezone = datetime.now().replace(tzinfo=pytz.timezone('Portugal'))
+timezone = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
 
 ## ----------------------------- Time assignments for the reminder method -------------------------------------##
 
