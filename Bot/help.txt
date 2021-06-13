@@ -1,0 +1,13 @@
+** funções adicionadas: **
+**!t <segundos>** - começa a contar um timer com o tempo estabelecido (em segundos);
+**!timer** - O timer conta o tempo atribuído como *default*;
+**!cls** - Limpa o canal de texto;
+**!greet** - envia uma mensagem privada de "Olá!! :D para o autor da mensagem";
+**!dm <user_ID> <mensagem>**  - envia uma mensagem privada para um membro específico do servidor;
+**!alldm <mensagem>** - envia mensagem para todos os membros do servidor;
+**!contar_mensagens** - Conta quantas mensagens há num canal de texto;
+**!gtmin** - Devolve todos os que têm o cargo de "admin";
+**!gtaluno** - Devolve todos os que têm o cargo de "aluno";
+**!msadmin** - Envia mensagem para todos os membros que são "admin";
+**!msaluno** - Envia mensagem para todos os membros que são "admin".
+hsauogdasd
