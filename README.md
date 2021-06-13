@@ -17,6 +17,7 @@ information.
 ## Authors
 
 * **[Hanna (@Hantriex)]**
+* **[Pedro Marcelino (@pmarcelino)]**
 
 ## Support
 
