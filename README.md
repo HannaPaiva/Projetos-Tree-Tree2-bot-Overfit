@@ -1,8 +1,6 @@
 # Python Discord Bot 
 
-This repository contains the code to a bot with a lot of different funtionalities.
-
-
+This repository contains the code to a bot--
 
 ## Author
 
@@ -35,7 +33,7 @@ Here is an explanation of what everything is:
 
 
 ```
-pip install discord.py
+pip install discord
 ```
 ```
 pip install asyncio
