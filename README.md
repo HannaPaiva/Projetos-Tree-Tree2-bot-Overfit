@@ -22,8 +22,6 @@ Clone/Download the repository.
 
 ## How to set up
 
-To set up the bot I made it as simple as possible. I now created a [config.yaml](config.yaml) file where you can put the
-needed things to edit.
 
 Here is an explanation of what everything is:
 
