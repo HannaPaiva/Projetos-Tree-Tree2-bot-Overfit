@@ -1,26 +1,25 @@
 # Python Discord Bot 
 
 Trixsbot is a free, open-source, extensible bot for Discord servers, built with Python, and it can be run in a cloud hosting facility like AWS or in your own computer. Using Trixsbot you have total control of the code and functions of the bot, and use it as a foundation for your own project. 
+
 ## Author
 
 * **[Hanna (@Hantriex) https://github.com/Hantriex]**
 
 ## Contributors
 
-* **[Pedro Marcelino (@pmarcelino) https://github.com/pmarcelino]**
-* **[João Coelho (@joaopcoelho) https://github.com/joaopcoelho ]**
+* **Pedro Marcelino [pmarcelino] https://github.com/pmarcelino)
+* **João Coelho [@joaopcoelho] (ttps://github.com/joaopcoelho)**
 
 ## How to download it
 
-This repository contains a code that you can download and build your own bot with it. 
-
-Clone/Download the repository.
+This repository contains a code which you can download and build your own bot with it, by cloning/Downloading the repository, and switching the content of some variables.
 
 
-## How to set up
+## How make your own
 
 
-Here is an explanation of what everything is:
+Switch the content of these variables:
 
 | Variable              | What it is                                                            |
 | ----------------------| ----------------------------------------------------------------------|
@@ -52,4 +51,4 @@ pip install pytz
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
