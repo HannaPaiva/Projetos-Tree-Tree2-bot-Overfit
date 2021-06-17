@@ -54,7 +54,7 @@ And keep in mind: all the names inside brackets are also part of the command. It
 ```
  ### functions
  
-These functions are methods that are always running as background processes while the bot is active. They are useful if you want your bot to do something in a given time, maybe daily or from time to time. You have to call them in the **On_Ready()** function. 
+The functions are methods that are always running as background processes while the bot is active. They are useful if you want your bot to do something in a given time, maybe daily or from time to time. You have to call them in the **On_Ready()** function. 
 All of these methods can be found separeted in the folder "Single Commands and methods", and you can change the value of the variables as you wish. 
 
 **DailyCleanup()** - This method erases all the messages every day in a given time, in all text channels in the guild, and it 
@@ -105,4 +105,4 @@ Here on [fork]
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
