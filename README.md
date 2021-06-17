@@ -17,7 +17,7 @@ These are basically what Trixsbot can do.
 And keep in mind: all the names inside brackets are also part of the command. It is where you write an input. 
 
 ### Commands
-```
+
 **!t [seconds]** - It sends a message and starts to count a timer with the given time in seconds;
 
 **!timer** - It starts to count a timer with a default time of 1 hour. You can change it in the code;
@@ -51,7 +51,7 @@ And keep in mind: all the names inside brackets are also part of the command. It
 **!delete [Name of the channel]** - It deletes the text channel with the given name;
 
 **!faq"** - It returns a link to a site with The Frequently Asked Questions about the server.
-```
+
  ### functions
  
 The functions are methods that are always running as background processes while the bot is active. They are useful if you want your bot to do something in a given time, maybe daily or from time to time. You have to call them in the **On_Ready()** function. 
@@ -59,7 +59,9 @@ All of these methods can be found separeted in the folder "Single Commands and m
 
 **DailyCleanup()** - This method erases all the messages every day in a given time, in all text channels in the guild, and it 
      is called when the bot starts. It is also always running as a background process.
+     
 **AsyncioCleanup()** - This method erases all the messages in all text channels in the guild and it is called when the bot starts. The cleaning is done from time to time (x to x time // like from 2 to 2 hours)
+
 **Reminder()** - This method has the purpose to send messages to the private chat of the guild members with a specific role at a certain time. In this case, when the time is the same as the one assigned to the 'reminder' variable, it sends a message to all students with the given role name, attached to a timer that shows how much time is left for the server activities to start. 
 
 ## How to download it
