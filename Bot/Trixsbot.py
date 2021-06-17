@@ -5,16 +5,17 @@ import asyncio
 import time
 import pytz
 import csv
+import discord.utils
 from dotenv import load_dotenv
 import os
 load_dotenv('.env')
 
-# timezone = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
+timezone = datetime.now(pytz.timezone('Europe/Lisbon'))
 
 ## ----------------------------- Time assignments for the reminder method -------------------------------------##
 
 format = '%H:%M'
-now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
+now = datetime.now(pytz.timezone('Europe/Lisbon'))
 time_now = now.strftime(format)
 
 advance_time = '00:15'
@@ -28,6 +29,7 @@ print(f"Tempo do lembrete diário = {reminder}")
 
 ## ------------------------------ Assignments and creation variables of the bot ------------------------------##
 
+token = 'ODM5MTY3ODc4MDIzODcyNTUx.YJFt_Q.5kq3zRx9WVUeLMWJJe_z0EbDzKI'
 GUILD = 'Overfit Testes (Hanna)'
 TOKEN = os.getenv('TOKEN')
 intents = discord.Intents().all()
@@ -35,13 +37,12 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 guild = discord.utils.get(bot.guilds, name=GUILD)
 
 intents.members = True
-bot.remove_command('help')
+bot.remove_command('help') # you have to remove it so you can write your own.
 
 ## ----------------------------- Time assignment for the daily cleanup method--------------------------------------##
 
 strtimecleanup = '08:00'
 dailytime_cleanup = datetime.strptime(strtimecleanup, format)
-
 
 print(f'Limpeza diária = {strtimecleanup}')
 
@@ -70,9 +71,10 @@ async def AsyncioCleanup():
     args = 'Este canal foi limpo.'
     argaud = 'Próxima sessão de aprendizagem por pares: 3ª das 17h30 às 19h00 e 5ª das 18h00 às 19h30'
     guild = discord.utils.get(bot.guilds, name=GUILD)
+    channel = discord.utils.get
     count = 0
     interval = datetime(year=now.year, month=now.month,
-                        day=now.day, hour=2, minute=0, second=0)
+                        day=now.day, hour=2, minute=0, second=00)
     seconds_interval = ((interval.hour * 3600) +
                         (interval.minute * 60) + interval.second)
     print(f"Espaço de tempo para a limpeza = {interval.strftime('%H:%M:%S')}")
@@ -80,8 +82,8 @@ async def AsyncioCleanup():
     while True:
 
         await asyncio.sleep(seconds_interval)
-        for channel in guild.channels:
-            async for _ in channel.history(limit=None):
+        for guild in bot.guilds:
+          for channel in guild.text_channels:
                 count = count + 1
 
                 await channel.purge(limit=count)
@@ -91,7 +93,7 @@ async def AsyncioCleanup():
 
                     await channel.send(argaud)
 
-        break
+     
 
 
 ## ----------------------- The Daily_Cleanup method, called in the On_ready event ----------------------- ##
@@ -120,11 +122,11 @@ async def Daily_Cleanup():
     count = 0
 
     while True:
-        now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon')).strftime(format)
+        now = datetime.now(pytz.timezone('Europe/Lisbon')).strftime(format)
 
         if now == strtimecleanup:
 
-            for channel in guild.channels:
+            for channel in guild.text_channels:
                 async for _ in channel.history(limit=None):
                     count = count + 1
                 await channel.purge(limit=count)
@@ -185,7 +187,7 @@ async def Reminder():
     '''
     while True:
 
-        now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon')).strftime(format)
+        now = datetime.now(pytz.timezone('Europe/Lisbon')).strftime(format)
 
         if now == reminder:
 
@@ -223,11 +225,29 @@ async def Reminder():
                         await asyncio.sleep(1)
 
                     await msg.edit(content='Fim!')
-            break
+                break
+
+
+
+@bot.event
+async def on_member_join(member):
+    ''' 
+    *****************************************************************************************************************************************
+
+    ### Description: 
+     This method is called when the member enters a server, and it sends a welcome message to the member 
+     in the 'channel of greetings', alongside with the profile picture of the member. 
+    *****************************************************************************************************************************************
+     '''
+    ID_Welcome_channel = 855023194586742784
+    channel = bot.get_channel(ID_Welcome_channel)
+    embed=discord.Embed(title=f"Seja bem-vindo ao servidor do Overfit, {member.name}!!", description=f" {member.guild.name}!") # F-Strings!
+    embed.set_thumbnail(url=member.avatar_url) # Set the embed's thumbnail to the member's avatar image!
+
+    await channel.send(embed=embed)
+   
 
 ## ----------------------- on_ready, that calls the methods when the bot is ready to be used ----------------------- ##
-
-
 @bot.event
 async def on_ready():
     ''' 
@@ -782,7 +802,7 @@ async def presencas(ctx):
 
     channel = ctx.message.channel
     guild = ctx.message.guild
-    now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
+    now = datetime.now(pytz.timezone('Europe/Lisbon'))
     now_time = now.strftime("%d/%m/%Y - %H:%M")
     now_date = now.strftime("%d/%m/%Y")
 
@@ -809,7 +829,6 @@ def filterOnlyBots(member):
      member -> The members in the guild
 
     '''
-
     return member.bot
 
 
@@ -853,7 +872,7 @@ async def on_message(ctx):
 
 *****************************************************************************************************************************************
 '''
-    now = datetime.now().replace(tzinfo=pytz.timezone('Europe/Lisbon'))
+    now = datetime.now(pytz.timezone('Europe/Lisbon'))
     membersInServer = ctx.guild.members
     channel = ctx.message.channel
     bots_In_Server = list(filter(filterOnlyBots, membersInServer))
@@ -885,5 +904,4 @@ async def on_message(ctx):
     await channel.send(embed=msg)
 
 
-bot.run(TOKEN)
-
+bot.run(token)
