@@ -22,17 +22,14 @@ And keep in mind: all the names inside brackets are also part of the command. It
 
 **!timer** - It starts to count a timer with a default time of 1 hour. You can change it in the code;
 
-
 **!cls** - Clear the channel where the message was sent; 
 
-
 **!greet** - It sends a greeting to the member who sent the message;
-
 
 **!dm [user_ID] [message]**  - It sends the message you write for a member with a certain ID;
 
 **!alldm "[message]"** - It sends the message you write to all the members in the server;
-```
+
 **!contar_mensagens** - It counts how much messages are in a text channel;
 
 **!gtmin** - Returns all members with the "admin" role;
@@ -42,13 +39,19 @@ And keep in mind: all the names inside brackets are also part of the command. It
 **!msadmin [message]** - It sends a message to all members with the "admin" role (you can change the name of the role in the code); 
 
 **!msaluno [message]** - It sends a message to all members with the "aluno" role;
-**!presenças** - It sends a .CSV file with the members who are not offiline, with the Timestamp and the channel where the command was given; 
-**!status** - It sends a message with the total of members in the server, total of bots in the server and the name of those who are online; 
-**!create [Name of the channel] [Name of the category]** - It creates a channel with the given name inside of the given category. Remember to write it with quotation marks;
-**!defcreate [Name of the channel]** - It creates a text channel in the default location of the method;
-**!delete [Name of the channel]** - It deletes the text channel with the given name;
-**!faq"** - It returns a link to a site with The Frequently Asked Questions about the server.
 
+**!presenças** - It sends a .CSV file with the members who are not offiline, with the Timestamp and the channel where the command was given; 
+
+**!status** - It sends a message with the total of members in the server, total of bots in the server and the name of those who are online; 
+
+**!create [Name of the channel] [Name of the category]** - It creates a channel with the given name inside of the given category. Remember to write it with quotation marks;
+
+**!defcreate [Name of the channel]** - It creates a text channel in the default location of the method;
+
+**!delete [Name of the channel]** - It deletes the text channel with the given name;
+
+**!faq"** - It returns a link to a site with The Frequently Asked Questions about the server.
+```
  ### functions
  
 These functions are methods that are always running as background processes while the bot is active. They are useful if you want your bot to do something in a given time, maybe daily or from time to time. You have to call them in the **On_Ready()** function. 
