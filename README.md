@@ -8,8 +8,8 @@ Trixsbot is a free, open-source, extensible bot for Discord servers, built with 
 
 ## Contributors
 
-* **Pedro Marcelino [pmarcelino] https://github.com/pmarcelino)
-* **João Coelho [@joaopcoelho] (ttps://github.com/joaopcoelho)**
+* **Pedro Marcelino [pmarcelino](https://github.com/pmarcelino)**
+* **João Coelho [@joaopcoelho](ttps://github.com/joaopcoelho)**
 
 ## How to download it
 
