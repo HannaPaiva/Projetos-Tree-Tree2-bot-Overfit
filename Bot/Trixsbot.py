@@ -29,7 +29,6 @@ print(f"Tempo do lembrete diário = {reminder}")
 
 ## ------------------------------ Assignments and creation variables of the bot ------------------------------##
 
-token = 'ODM5MTY3ODc4MDIzODcyNTUx.YJFt_Q.5kq3zRx9WVUeLMWJJe_z0EbDzKI'
 GUILD = 'Overfit Testes (Hanna)'
 TOKEN = os.getenv('TOKEN')
 intents = discord.Intents().all()
@@ -225,7 +224,7 @@ async def Reminder():
                         await asyncio.sleep(1)
 
                     await msg.edit(content='Fim!')
-                break
+               
 
 
 
@@ -904,4 +903,4 @@ async def on_message(ctx):
     await channel.send(embed=msg)
 
 
-bot.run(token)
+bot.run(TOKEN)
