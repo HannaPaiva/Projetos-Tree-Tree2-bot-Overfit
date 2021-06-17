@@ -60,4 +60,4 @@ async def Reminder():
                         await asyncio.sleep(1)
 
                     await msg.edit(content='Fim!')
-                break
+            
