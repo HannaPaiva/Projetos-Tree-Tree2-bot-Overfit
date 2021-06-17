@@ -27,7 +27,7 @@ And keep in mind: all the names inside brackets are also part of the command. It
 **!cls** - Clear the channel where the message was sent; 
 ```
 ```
-**!greet** - Envia uma mensagem privada de "Olá!! :D para o autor da mensagem";
+**!greet** - It sends a greeting to the member who sent the message;
 ```
 ```
 **!dm [user_ID] [message]**  - It sends the message you write for a member with a certain ID;
@@ -36,9 +36,13 @@ And keep in mind: all the names inside brackets are also part of the command. It
 **!alldm "[message]"** - It sends the message you write to all the members in the server;
 ```
 **!contar_mensagens** - It counts how much messages are in a text channel;
+
 **!gtmin** - Returns all members with the "admin" role;
+
 **!gtaluno** - Returns all members with the "aluno" role;
+
 **!msadmin [message]** - It sends a message to all members with the "admin" role (you can change the name of the role in the code); 
+
 **!msaluno [message]** - It sends a message to all members with the "aluno" role;
 **!presenças** - It sends a .CSV file with the members who are not offiline, with the Timestamp and the channel where the command was given; 
 **!status** - It sends a message with the total of members in the server, total of bots in the server and the name of those who are online; 
@@ -55,6 +59,7 @@ All of these methods can be found separeted in the folder "Single Commands and m
 **DailyCleanup()** - This method erases all the messages every day in a given time, in all text channels in the guild, and it 
      is called when the bot starts. It is also always running as a background process.
 **AsyncioCleanup()** - This method erases all the messages in all text channels in the guild and it is called when the bot starts. The cleaning is done from time to time (x to x time // like from 2 to 2 hours)
+**Reminder()** - This method has the purpose to send messages to the private chat of the guild members with a specific role at a certain time. In this case, when the time is the same as the one assigned to the 'reminder' variable, it sends a message to all students with the given role name, attached to a timer that shows how much time is left for the server activities to start. 
 
 ## How to download it
 
@@ -74,7 +79,7 @@ In the code, you ***have*** to locate and change these:
 
 
 
-## How to start
+## To install with pip install
 
 
 ```
@@ -91,7 +96,7 @@ The last one is optional if you are not hosting your bot anywhere.
 
 ## Issues or Questions
 
----
+Here on [fork]
 
 ## Built With
 
