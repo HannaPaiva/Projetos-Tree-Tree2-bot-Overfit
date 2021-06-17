@@ -13,11 +13,13 @@ Trixsbot is a free, open-source, extensible bot for Discord servers built with P
 
 ## Bot commands and functions
 
-Important: all the names inside brackets are also part of the command. It is where you write an input for the command. 
+These are basically what Trixsbot can do. 
+And keep in mind: all the names inside brackets are also part of the command. It is where you write an input. 
 
 ### Commands
-
+```
 **!t [seconds]** - It sends a message and starts to count a timer with the given time in seconds;
+```
 **!timer** - It starts to count a timer with a default time of 1 hour. You can change it in the code;
 **!cls** - Clear the channel where the message was sent; 
 **!greet** - Envia uma mensagem privada de "Olá!! :D para o autor da mensagem";
@@ -26,8 +28,8 @@ Important: all the names inside brackets are also part of the command. It is whe
 **!contar_mensagens** - It counts how much messages are in a text channel;
 **!gtmin** - Returns all members with the "admin" role;
 **!gtaluno** - Returns all members with the "aluno" role;
-**!msadmin** - It sends a message to all members with the "admin" role (you can change the name of the role in the code); 
-**!msaluno** - It sends a message to all members with the "aluno" role;
+**!msadmin [message]** - It sends a message to all members with the "admin" role (you can change the name of the role in the code); 
+**!msaluno [message]** - It sends a message to all members with the "aluno" role;
 **!presenças** - It sends a .CSV file with the members who are not offiline, with the Timestamp and the channel where the command was given; 
 **!status** - It sends a message with the total of members in the server, total of bots in the server and the name of those who are online; 
 **!create [Name of the channel] [Name of the category]** - It creates a channel with the given name inside of the given category. Remember to write it with quotation marks;
