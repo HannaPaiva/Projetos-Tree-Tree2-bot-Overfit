@@ -16,14 +16,16 @@ Trixsbot is a free, open-source, extensible bot for Discord servers, built with 
 This repository contains a code which you can download and build your own bot with it, by cloning/Downloading the repository, and switching the content of some variables.
 
 
-## Variables have its value changed
+## Variables that must have its value changed
 
-
-Switch the content of these variables:
+In the code, you have to locate and change these:
 
 | Variable              | What it is                                                            |
 | ----------------------| ----------------------------------------------------------------------|
-| TOKEN                 | the token of your bot, that it also can be stored in another file. Never share this|
+| TOKEN                 | It is the token of your bot, that it also can be stored in another file. Never share this|
+| GUILD                 | Here, you put the name of your server/guild |
+| PREFIX                | The letter/sign your commands will have before it|
+
 
 
 
