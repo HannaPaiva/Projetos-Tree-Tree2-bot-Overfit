@@ -4,12 +4,12 @@ Trixsbot is a free, open-source, extensible bot for Discord servers, built with 
 
 ## Author
 
-* **[Hanna (@Hantriex) https://github.com/Hantriex]**
+* **[Hanna Paiva](https://github.com/Hantriex)**
 
 ## Contributors
 
-* **Pedro Marcelino [pmarcelino](https://github.com/pmarcelino)**
-* **João Coelho [@joaopcoelho](ttps://github.com/joaopcoelho)**
+* **[Pedro Marcelino](https://github.com/pmarcelino)**
+* **[João Coelho](https://github.com/joaopcoelho)**
 
 ## How to download it
 
