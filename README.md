@@ -20,11 +20,21 @@ And keep in mind: all the names inside brackets are also part of the command. It
 ```
 **!t [seconds]** - It sends a message and starts to count a timer with the given time in seconds;
 ```
+```
 **!timer** - It starts to count a timer with a default time of 1 hour. You can change it in the code;
+```
+```
 **!cls** - Clear the channel where the message was sent; 
+```
+```
 **!greet** - Envia uma mensagem privada de "Olá!! :D para o autor da mensagem";
+```
+```
 **!dm [user_ID] [message]**  - It sends the message you write for a member with a certain ID;
+```
+```
 **!alldm "[message]"** - It sends the message you write to all the members in the server;
+```
 **!contar_mensagens** - It counts how much messages are in a text channel;
 **!gtmin** - Returns all members with the "admin" role;
 **!gtaluno** - Returns all members with the "aluno" role;
