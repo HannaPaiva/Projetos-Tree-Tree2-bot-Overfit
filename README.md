@@ -1,6 +1,6 @@
 # Python Discord Bot 
 
-Trixsbot is a free, open-source, extensible bot for Discord servers, built with Python, and it can be run in a cloud hosting facility like AWS or in your own computer. Using Trixsbot, you have total control of the code and functions of the bot, and may use it as a foundation for your own project. 
+Trixsbot is a free, open-source, extensible bot for Discord servers built with Python, and it can be run in a cloud hosting facility like AWS or in your own computer. Using Trixsbot, you have total control of the code and functions of the bot, and you may use it as a foundation for your own project. Trixsbot is here to help you get started with it :D.  
 
 ## Author
 
@@ -11,33 +11,47 @@ Trixsbot is a free, open-source, extensible bot for Discord servers, built with 
 * **[Pedro Marcelino](https://github.com/pmarcelino)**
 * **[João Coelho](https://github.com/joaopcoelho)**
 
-## Bot functions
+## Bot commands and functions
 
-**!t <segundos>** - Começa a contar um timer com o tempo estabelecido (em segundos);
-**!timer** - O timer conta o tempo atribuído como *default*;
-**!cls** - Limpa o canal de texto;
+Important: all the names inside brackets are also part of the command. It is where you write an input for the command. 
+
+### Commands
+
+**!t [seconds]** - It sends a message and starts to count a timer with the given time in seconds;
+**!timer** - It starts to count a timer with a default time of 1 hour. You can change it in the code;
+**!cls** - Clear the channel where the message was sent; 
 **!greet** - Envia uma mensagem privada de "Olá!! :D para o autor da mensagem";
-**!dm <user_ID> <mensagem>**  - Envia uma mensagem privada para um membro específico do servidor;
-**!alldm <mensagem>** - Envia mensagem para todos os membros do servidor;
-**!contar_mensagens** - Conta quantas mensagens há num canal de texto;
-**!gtmin** - Devolve todos os que têm o cargo de "admin";
-**!gtaluno** - Devolve todos os que têm o cargo de "aluno";
-**!msadmin** - Envia mensagem para todos os membros que são "admin";
-**!msaluno** - Envia mensagem para todos os membros que são "admin";
-**!presenças** - Envia um ficheiro .CSV com as presenças, o canal, e um Timestamp;
-**!status** - Envia uma mensagem com o total de membros, total de bots, e os membros que estão online; 
-**!create <nome do canal> <categoria>** - Cria um canal com o nome inserido, na categoria inserida (Se houver emojis ou espaços, escrever entre aspas);
-**!defcreate <nome do canal>** - Cria um canal no topo de todos os canais;
-**!delete <nome do canal>** - Apaga um canal de texto.
-  
+**!dm [user_ID] [message]**  - It sends the message you write for a member with a certain ID;
+**!alldm "[message]"** - It sends the message you write to all the members in the server;
+**!contar_mensagens** - It counts how much messages are in a text channel;
+**!gtmin** - Returns all members with the "admin" role;
+**!gtaluno** - Returns all members with the "aluno" role;
+**!msadmin** - It sends a message to all members with the "admin" role (you can change the name of the role in the code); 
+**!msaluno** - It sends a message to all members with the "aluno" role;
+**!presenças** - It sends a .CSV file with the members who are not offiline, with the Timestamp and the channel where the command was given; 
+**!status** - It sends a message with the total of members in the server, total of bots in the server and the name of those who are online; 
+**!create [Name of the channel] [Name of the category]** - It creates a channel with the given name inside of the given category. Remember to write it with quotation marks;
+**!defcreate [Name of the channel]** - It creates a text channel in the default location of the method;
+**!delete [Name of the channel]** - It deletes the text channel with the given name;
+**!faq"** - It returns a link to a site with The Frequently Asked Questions about the server.
+
+ ### functions
+ 
+These functions are methods that are always running as background processes while the bot is active. They are useful if you want your bot to do something in a given time, maybe daily or from time to time. You have to call them in the **On_Ready()** function. 
+All of these methods can be found separeted in the folder "Single Commands and methods", and you can change the value of the variables as you wish. 
+
+**DailyCleanup()** - This method erases all the messages every day in a given time, in all text channels in the guild, and it 
+     is called when the bot starts. It is also always running as a background process.
+**AsyncioCleanup()** - This method erases all the messages in all text channels in the guild and it is called when the bot starts. The cleaning is done from time to time (x to x time // like from 2 to 2 hours)
+
 ## How to download it
 
 This repository contains a code which you can download and build your own bot with it, by cloning/Downloading the repository, and switching the content of some variables.
 
 
-## Variables that must have its value changed
+## Variables that ***must*** have its value changed
 
-In the code, you have to locate and change these:
+In the code, you ***have*** to locate and change these:
 
 | Variable              | What it is                                                            |
 | ----------------------| ----------------------------------------------------------------------|
@@ -58,8 +72,9 @@ pip install discord
 pip install asyncio
 ```
 ```
-pip install pytz
+pip install pytz 
 ```
+The last one is optional if you are not hosting your bot anywhere.
 
 
 ## Issues or Questions
