@@ -3,10 +3,12 @@ from discord.ext import commands
 from datetime import datetime
 import pytz
 import discord.utils
-
+from dotenv import load_dotenv
+import os
+load_dotenv('.env')
 
 GUILD = 'Teste'
-TOKEN = 
+TOKEN = os.getenv('TOKEN')
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix='!', intents=intents)
 guild = discord.utils.get(bot.guilds, name=GUILD)
