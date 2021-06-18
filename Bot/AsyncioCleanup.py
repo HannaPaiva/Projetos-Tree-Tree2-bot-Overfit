@@ -4,9 +4,7 @@ from datetime import datetime
 import asyncio
 import pytz
 import discord.utils
-from dotenv import load_dotenv
-import os
-load_dotenv('.env')
+
 
 ## ----------------------------- Time assignments for the reminder method -------------------------------------##
 
@@ -16,7 +14,7 @@ now = datetime.now(pytz.timezone('Europe/Lisbon'))
 
 ## ------------------------------ Assignments and creation variables of the bot ------------------------------##
 GUILD = 'Overfit Testes (Hanna)'
-TOKEN = os.getenv('TOKEN')
+TOKEN = 'ODU1MzQ3MDQ0MDM3NTU4MzEy.YMxKAg.Dgvaowskjg5l_yVZ2GCFfEB7w1k'
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix='!', intents=intents)
 guild = discord.utils.get(bot.guilds, name=GUILD)
