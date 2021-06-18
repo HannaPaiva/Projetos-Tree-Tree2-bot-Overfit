@@ -62,12 +62,11 @@ async def AsyncioCleanup():
 
     while True:     
      for channel in guild.text_channels:
-            count = count + 1
             async for _ in channel.history(limit=None):
              count = count + 1
             await channel.purge(limit = count)
             await channel.send(args)
-            count = 0
+  
             if channel.name == 'auditório':
                 await channel.send(argaud)
      await asyncio.sleep(seconds_interval)       
