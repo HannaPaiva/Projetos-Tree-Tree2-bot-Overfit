@@ -99,7 +99,7 @@ The last one is optional if you are not hosting your bot anywhere.
 
 ## Issues or Questions
 
-Here on [fork]
+Here on [Trixsbot](https://github.com/Hantriex/Projetos-Tree-Tree2--Hanna-Paiva/issues/1)
 
 ## Built With
 
