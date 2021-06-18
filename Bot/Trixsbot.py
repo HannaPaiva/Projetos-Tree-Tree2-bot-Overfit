@@ -18,9 +18,9 @@ format = '%H:%M'
 now = datetime.now(pytz.timezone('Europe/Lisbon'))
 time_now = now.strftime(format)
 
-advance_time = '00:15'
+advance_time = '00:01'
 advance = '00:15:00'
-start_time = '09:00'
+start_time = '00:15'
 
 reminder = datetime.strptime(start_time, format) - datetime.strptime(advance_time, format)
 print(f"Agora são {now}")
@@ -28,7 +28,6 @@ print(f"Tempo do lembrete diário = {reminder}")
 
 
 ## ------------------------------ Assignments and creation variables of the bot ------------------------------##
-
 GUILD = 'Overfit Testes (Hanna)'
 TOKEN = os.getenv('TOKEN')
 intents = discord.Intents().all()
@@ -70,29 +69,23 @@ async def AsyncioCleanup():
     args = 'Este canal foi limpo.'
     argaud = 'Próxima sessão de aprendizagem por pares: 3ª das 17h30 às 19h00 e 5ª das 18h00 às 19h30'
     guild = discord.utils.get(bot.guilds, name=GUILD)
-    channel = discord.utils.get
     count = 0
     interval = datetime(year=now.year, month=now.month,
-                        day=now.day, hour=2, minute=0, second=00)
+                        day=now.day, hour=0, minute=0, second=5)
     seconds_interval = ((interval.hour * 3600) +
                         (interval.minute * 60) + interval.second)
     print(f"Espaço de tempo para a limpeza = {interval.strftime('%H:%M:%S')}")
-
-    while True:
-
-        await asyncio.sleep(seconds_interval)
-        for guild in bot.guilds:
-          for channel in guild.text_channels:
-                count = count + 1
-
-                await channel.purge(limit=count)
-
-                await channel.send(args)
-                if channel.name == 'auditório':
-
-                    await channel.send(argaud)
-
+   
      
+    await asyncio.sleep(seconds_interval)
+    for guild in bot.guilds:
+        for channel in guild.text_channels:
+            count = count + 1
+            await channel.purge(limit=count)
+            await channel.send(args)
+            if channel.name == 'auditório':
+                await channel.send(argaud)
+
 
 
 ## ----------------------- The Daily_Cleanup method, called in the On_ready event ----------------------- ##
@@ -133,7 +126,7 @@ async def Daily_Cleanup():
                 if channel.name == 'auditório':
                     await channel.send(argaud)
 
-        break
+    
 
 
 ## ----------------------------------------------- faq command ---------------------------------------------- ##
@@ -192,16 +185,14 @@ async def Reminder():
 
             role_name = 'aluno'
             guild = discord.utils.get(bot.guilds, name=GUILD)
-            role = discord.utils.find(
-                lambda r: r.name == role_name, guild.roles)
+            role = discord.utils.find(lambda r: r.name == role_name, guild.roles)
             members = guild.members
 
             # "number" retains the time in "advance", that is in string, converted in Datetime
             number = datetime.strptime(advance, '%H:%M:%S')
 
             # "seconds" retains the time in "number", converting all time in seconds
-            seconds = (number.hour * 3600) + \
-                (number.minute * 60) + number.second
+            seconds = (number.hour * 3600) +  (number.minute * 60) + number.second
 
             # h is the form of output of the hour. It gets the seconds and transforms in H:M:S
             h = time.strftime('%H:%M:%S', time.gmtime(seconds))
@@ -224,8 +215,8 @@ async def Reminder():
                         await asyncio.sleep(1)
 
                     await msg.edit(content='Fim!')
-               
-
+                
+            break
 
 
 @bot.event
@@ -259,9 +250,10 @@ async def on_ready():
     *****************************************************************************************************************************************
     '''
     print(f'{bot.user.name} está conectado!')
-    await Daily_Cleanup()
-    await AsyncioCleanup()
     await Reminder()
+    #await Daily_Cleanup()
+    #await AsyncioCleanup()
+  
 
 
 ## ------------------------------------ ##
