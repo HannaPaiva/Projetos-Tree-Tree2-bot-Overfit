@@ -75,9 +75,9 @@ In the code, you ***have*** to locate and change these:
 
 | Variable              | What it is                                                            |
 | ----------------------| ----------------------------------------------------------------------|
-| TOKEN                 | It is the token of your bot, that it also can be stored in another file. Never share this|
-| GUILD                 | Here, you put the name of your server/guild |
-| PREFIX                | The letter/sign your commands will have before it|
+| TOKEN                 | It is the token of your bot, that it also can be stored in another file.|
+| GUILD                 | Here, you put the name of your server/guild. |
+| PREFIX                | The letter/sign your commands will have before it.|
 
 
 
