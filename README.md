@@ -1,6 +1,6 @@
 # Python Discord Bot 
 
-Trixsbot is a free, open-source, extensible bot for Discord servers built with Python, and it can be run in a cloud hosting facility like AWS or in your own computer. Using Trixsbot, you have total control of the code and functions of the bot, and you may use it as a foundation for your own project.  
+ Trixsbot is a free, open-source, extensible bot for Discord servers built with Python, and it can be run in a cloud hosting facility like AWS or in your own computer. Using Trixsbot, you have total control of the code and functions of the bot, and you may use it as a foundation for your own project.  
 The entire code is documented with docstrings, and it is explaining in detail what each thing does in the functions. Good luck!! Trixsbot is here to help you get started with it. :D
 ## Author
 
@@ -13,48 +13,48 @@ The entire code is documented with docstrings, and it is explaining in detail wh
 
 ## Bot commands and functions
 
-These are basically what Trixsbot can do. 
+ These are basically what Trixsbot can do. 
 And keep in mind: all the names inside brackets are also part of the command. It is where you write an input. 
 
 ### Commands
 
-**!t [seconds]** - It sends a message and starts to count a timer with the given time in seconds;
+ **!t [seconds]** - It sends a message and starts to count a timer with the given time in seconds;
 
-**!timer** - It starts to count a timer with a default time of 1 hour. You can change it in the code;
+ **!timer** - It starts to count a timer with a default time of 1 hour. You can change it in the code;
 
-**!cls** - Clear the channel where the message was sent; 
+ **!cls** - Clear the channel where the message was sent; 
 
-**!greet** - It sends a greeting to the member who sent the message;
+ **!greet** - It sends a greeting to the member who sent the message;
 
-**!dm [user_ID] [message]**  - It sends the message you write for a member with a certain ID;
+ **!dm [user_ID] [message]**  - It sends the message you write for a member with a certain ID;
 
-**!alldm "[message]"** - It sends the message you write to all the members in the server;
+ **!alldm "[message]"** - It sends the message you write to all the members in the server;
 
-**!contar_mensagens** - It counts how much messages are in a text channel;
+ **!contar_mensagens** - It counts how much messages are in a text channel;
 
-**!gtmin** - Returns all members with the "admin" role;
+ **!gtmin** - Returns all members with the "admin" role;
 
-**!gtaluno** - Returns all members with the "aluno" role;
+ **!gtaluno** - Returns all members with the "aluno" role;
 
-**!msadmin [message]** - It sends a message to all members with the "admin" role (you can change the name of the role in the code); 
+ **!msadmin [message]** - It sends a message to all members with the "admin" role (you can change the name of the role in the code); 
 
-**!msaluno [message]** - It sends a message to all members with the "aluno" role;
+ **!msaluno [message]** - It sends a message to all members with the "aluno" role;
 
-**!presenças** - It sends a .CSV file with the members who are not offiline, with the Timestamp and the channel where the command was given; 
+ **!presenças** - It sends a .CSV file with the members who are not offiline, with the Timestamp and the channel where the command was given; 
 
-**!status** - It sends a message with the total of members in the server, total of bots in the server and the name of those who are online; 
+ **!status** - It sends a message with the total of members in the server, total of bots in the server and the name of those who are online; 
 
-**!create [Name of the channel] [Name of the category]** - It creates a channel with the given name inside of the given category. Remember to write it with quotation marks;
+ **!create [Name of the channel] [Name of the category]** - It creates a channel with the given name inside of the given category. Remember to write it with quotation marks;
 
-**!defcreate [Name of the channel]** - It creates a text channel in the default location of the method;
+ **!defcreate [Name of the channel]** - It creates a text channel in the default location of the method;
 
-**!delete [Name of the channel]** - It deletes the text channel with the given name;
+ **!delete [Name of the channel]** - It deletes the text channel with the given name;
 
-**!faq"** - It returns a link to a site with The Frequently Asked Questions about the server.
+ **!faq"** - It returns a link to a site with The Frequently Asked Questions about the server.
 
  ### functions
  
-The functions are methods that are always running as background processes while the bot is active. They are useful if you want your bot to do something in a given time, maybe daily or from time to time. You have to call them in the **On_Ready()** function. 
+ The functions are methods that are always running as background processes while the bot is active. They are useful if you want your bot to do something in a given time, maybe daily or from time to time. You have to call them in the **On_Ready()** function. 
 All of these methods can be found separeted in the folder "Single Commands and methods", and you can change the value of the variables as you wish. 
 
 **DailyCleanup()** - This method erases all the messages every day in a given time, in all text channels in the guild, and it 
