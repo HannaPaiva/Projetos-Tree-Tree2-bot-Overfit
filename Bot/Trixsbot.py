@@ -18,9 +18,9 @@ format = '%H:%M'
 now = datetime.now(pytz.timezone('Europe/Lisbon'))
 time_now = now.strftime(format)
 
-advance_time = '00:01'
+advance_time = '00:15'
 advance = '00:15:00'
-start_time = '00:15'
+start_time = '16:30'
 
 reminder = datetime.strptime(start_time, format) - datetime.strptime(advance_time, format)
 print(f"Agora são {now}")
@@ -216,7 +216,7 @@ async def Reminder():
 
                     await msg.edit(content='Fim!')
                 
-            break
+            
 
 
 @bot.event
