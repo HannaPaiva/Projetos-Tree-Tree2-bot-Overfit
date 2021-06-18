@@ -64,10 +64,10 @@ All of these methods can be found separeted in the folder "Single Commands and m
 
 **Reminder()** - This method has the purpose to send messages to the private chat of the guild members with a specific role at a certain time. In this case, when the time is the same as the one assigned to the 'reminder' variable, it sends a message to all students with the given role name, attached to a timer that shows how much time is left for the server activities to start. 
 
-## How to download it
+## How to download and use it
 
 This repository contains a code which you can download and build your own bot with it, by cloning/Downloading the repository, and switching the content of some variables.
-
+You also can check [this tutorial](https://realpython.com/how-to-make-a-discord-bot-python/) about creating your own bot in python. Follow the steps and paste the code. 
 
 ## Variables that ***must*** have its value changed
 
