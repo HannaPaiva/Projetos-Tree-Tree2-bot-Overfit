@@ -15,7 +15,7 @@ now = datetime.now(pytz.timezone('Europe/Lisbon'))
 
 
 ## ------------------------------ Assignments and creation variables of the bot ------------------------------##
-GUILD = 'Teste'
+GUILD = 'Overfit Testes (Hanna)'
 TOKEN = os.getenv('TOKEN')
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix='!', intents=intents)
