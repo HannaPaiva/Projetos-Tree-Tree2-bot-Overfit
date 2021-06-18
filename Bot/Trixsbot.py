@@ -18,9 +18,9 @@ format = '%H:%M'
 now = datetime.now(pytz.timezone('Europe/Lisbon'))
 time_now = now.strftime(format)
 
-advance_time = '00:01'
-advance = '00:15:00'
-start_time = '11:40'
+advance_time = '00:10'
+advance = '00:10:00'
+start_time = '16:30'
 
 reminder = datetime.strptime(start_time, format) - datetime.strptime(advance_time, format)
 print(f"Agora são {now}")
