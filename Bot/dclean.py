@@ -53,5 +53,19 @@ async def Daily_Cleanup():
                 if channel.name == 'auditório':
                     await channel.send(argaud)
 
+ async def on_ready():
+    ''' 
+    *****************************************************************************************************************************************
+
+    ### Description: 
+     The on_ready method is the method that runs when the bot is ready to be used/connected.
+     it is calling the AsyncioCleanup() method, the Daily Cleanup method, and the Reminder() method;
+
+    *****************************************************************************************************************************************
+    '''
+    print(f'{bot.user.name} irá limpar todos os canais de tempo em tempo')
+    await  Daily_Cleanup()
+
+
+bot.run(TOKEN)
     
- bot.run(TOKEN)
