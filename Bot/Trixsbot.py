@@ -29,7 +29,7 @@ print(f"Tempo do lembrete diário = {reminder}")
 
 ## ------------------------------ Assignments and creation variables of the bot ------------------------------##
 GUILD = 'Overfit Testes (Hanna)'
-TOKEN = os.getenv('TOKEN')
+TOKEN = 'ODM5MTc2NzIxNzg4ODI5NzE4.YJF2OQ.S_Sc6239pZ_kVW_sjBz84dwzIRw'
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix='!', intents=intents)
 guild = discord.utils.get(bot.guilds, name=GUILD)
@@ -216,7 +216,7 @@ async def Reminder():
 
                     await msg.edit(content='Fim!')
                 
-            break
+        break
 
 
 @bot.event
